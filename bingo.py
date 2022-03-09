@@ -28,6 +28,7 @@ class Window(QMainWindow, Ui_MainWindow):
 
         self.onlyInt = QIntValidator()
         self.lectorNumero.setValidator(self.onlyInt)
+        self.taulaNumeros.resizeColumnsToContents()
 
         #self.taulaNumeros.cellClicked.connect(self.numeroClicat)
         self.botoNumero.clicked.connect(self.botoClicat)
