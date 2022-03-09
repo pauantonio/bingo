@@ -2,62 +2,146 @@
 
 """Bingo per al Centre d'Esplai Flor de Neu by Pau Antonio Soler"""
 
-numeros = [False] * 90
+from pickle import FALSE
+import sys
+from tkinter import Y
+
+from PyQt5.QtWidgets import (
+    QApplication, QDialog, QMainWindow, QMessageBox
+)
+
+from PyQt5.QtGui import *
+
+from PyQt5.uic import loadUi
+
+from bingo_window import Ui_MainWindow
+
+vectorNumeros = [False] * 90
 ultims = []
 
-def nouNumero() :
-    numero = int(input("Introdueix el número: "))
-    while(numero < 1 or numero > 90 or numeros[numero-1]) :
-        numero = int(input("Número incorrecte! Introdueix-ne un de vàlid: "))
-    numeros[numero-1] = True
-    ultims.insert(0, numero)
-    if(len(ultims) > 5) : ultims.pop(5)
-    imprimirNumeros()
+class Window(QMainWindow, Ui_MainWindow):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setupUi(self)
+        
+        self.setWindowTitle("Bingo Centre d'Esplai Flor de Neu")
 
-def linia() :
-    print("LÍNIAAAA\n")
+        self.onlyInt = QIntValidator()
+        self.lectorNumero.setValidator(self.onlyInt)
 
-def bingo() :
-    print("BINGOOOO\n")
+        #self.taulaNumeros.cellClicked.connect(self.numeroClicat)
+        self.botoNumero.clicked.connect(self.botoClicat)
+        self.lectorNumero.returnPressed.connect(self.botoClicat)
+        self.reset.clicked.connect(self.resetClicat)
+        self.linia.clicked.connect(self.liniaClicat)
+        self.bingo.clicked.connect(self.bingoClicat)
 
-def imprimirNumeros() :
-    print("\n"+"-"*76+"")
-    linia = ""
-    for i in range(90) :
-        linia += "| "
-        if (not numeros[i]) : linia += "   "
+    def botoClicat(self) :
+        num = self.lectorNumero.text()
+        self.lectorNumero.clear()
+        if (num != '' and int(num) > 0 and int(num) < 91) : 
+            self.canviarNumero(int(num))
         else :
-            if (i < 9) : linia += "0"+str(i+1)+" "
-            else : linia += str(i+1)+" "
-        if ((i+1)%15 == 0 and i != 0) : 
-            linia += "|"
-            print(linia)
-            linia = ""
-            print("-"*76)
-    linia = "\n"
-    for n in ultims : 
-        if (n < 10) : linia += '0'
-        linia += str(n)+" "
-    print(linia+"\n")
+            self.errorLecturaNumeros()
 
-print("Benvinguts al Bingo del Sopar de la Fam\nOrganitzat pel Centre d'Esplai Flor de Neu\n")
-partidaEnCurs = True
+    def errorLecturaNumeros(self) :
+        msg = QMessageBox()
+        msg.setWindowTitle("VIGILA!")
+        msg.setText("Introdueix un número vàlid, entre el 01 i el 90.")
+        msg.setIcon(QMessageBox.Information)
+        msg.exec_()
 
-while(partidaEnCurs) :
-    print("Què vols fer?\n")
-    print("1. Introduir un número")
-    print("2. Línia")
-    print("3. Bingo")
-    print("4. Acabar la partida")
+    def numeroClicat(self) :
+        cella = self.taulaNumeros.cellActivated
+        num = cella.column*10+cella.row
+        self.canviarNumero(int(num))
+        
+    def canviarNumero(self, num) :
+        item = self.taulaNumeros.item(int((num-1)/15), (num-1)%15)
+        if (not vectorNumeros[num-1]) :
+            vectorNumeros[num-1] = True
+            item.setBackground(QBrush(QColor(255, 0, 0, 255)))
+            item.setForeground(QBrush(QColor(255, 255, 255, 255)))
+            ultims.insert(0, num)
+            self.escriureUltims()
+        else :
+            okey = self.esborrarNumero(num)
+            if okey :
+                vectorNumeros[num-1] = False
+                item.setBackground(QBrush(QColor(255, 255, 255, 255)))
+                item.setForeground(QBrush(QColor(0, 0, 0, 255)))
+                for n in ultims :
+                    if (n == num) : 
+                        ultims.remove(num)
+                        self.escriureUltims()
+                        break
 
-    try:
-        opcio = int(input("\nTria la opció: "))
+    def esborrarNumero(self, num) :
+        msg = QMessageBox()
+        msg.setWindowTitle("VIGILA!")
+        msg.setText("El número " + str(num) + " ja ha estat introduït.\nEstàs segur que vols esborrar-lo?")
+        msg.setIcon(QMessageBox.Question)
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        botoSI = msg.button(QMessageBox.Yes)
+        botoSI.setText('&Sí')
+        msg.setDefaultButton(QMessageBox.Yes)
+        msg.exec_()
+        return msg.clickedButton() == botoSI
 
-        if (opcio == 1) : nouNumero()
-        elif (opcio == 2) : linia()
-        elif (opcio == 3) :  bingo()
-        elif (opcio == 4) : partidaEnCurs = False
-        else: print("\nOpció incorrecta! Introdueix un número vàlid\n")
-    
-    except:
-        print("\nOpció incorrecta! Introdueix un número vàlid\n")
+    def resetClicat(self) :
+        okey = self.confirmarReset()
+        if okey :
+            vectorNumeros[:] = [False] * 90
+            for column in range(15) :
+                for row in range(6) :
+                    item = self.taulaNumeros.item(row, column)
+                    item.setBackground(QBrush(QColor(255, 255, 255, 255)))
+                    item.setForeground(QBrush(QColor(0, 0, 0, 255)))
+            ultims.clear()
+            self.escriureUltims()
+
+    def confirmarReset(self) :
+        msg = QMessageBox()
+        msg.setWindowTitle("VIGILA!")
+        msg.setText("Estàs segur que vols reiniciar la partida?")
+        msg.setIcon(QMessageBox.Question)
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        botoSI = msg.button(QMessageBox.Yes)
+        botoSI.setText('&Sí')
+        msg.setDefaultButton(QMessageBox.Yes)
+        msg.exec_()
+        return msg.clickedButton() == botoSI
+
+    def escriureUltims(self) :
+        for i in range(5) :
+            posicio = ''
+            if i == 0 : posicio = self.ultim1
+            if i == 1 : posicio = self.ultim2
+            if i == 2 : posicio = self.ultim3
+            if i == 3 : posicio = self.ultim4
+            if i == 4 : posicio = self.ultim5
+
+            if i < len(ultims) : 
+                posicio.setText(str(ultims[i]))
+            else :
+                posicio.setText('-')
+
+    def liniaClicat(self) :
+        msg = QMessageBox()
+        msg.setWindowTitle("LÍNIA!")
+        msg.setText("Un afortunat/da ha fet línia!")
+        msg.setIcon(QMessageBox.Information)
+        msg.exec_()
+
+    def bingoClicat(self) :
+        msg = QMessageBox()
+        msg.setWindowTitle("BINGO!")
+        msg.setText("Un afortunat/da ha fet bingo!")
+        msg.setIcon(QMessageBox.Information)
+        msg.exec_()
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    win = Window()
+    win.show()
+    sys.exit(app.exec())
