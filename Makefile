@@ -5,11 +5,13 @@ run: gui
 	python3 bingo.py
 	
 build:
-	pyinstaller --noconsole --onefile bingo.py --clean
+	pyinstaller --clean --noconsole --onefile --icon=icona.ico bingo.py
 	
 setup:
+	sudo apt-get install python3-pip
 	pip install pyinstaller
 	pip install pyqt5
+	pip install pyqt5-tools
 	
 clean:
 	rm -rf __pycache__
