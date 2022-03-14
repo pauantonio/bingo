@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1320</width>
-    <height>894</height>
+    <width>1587</width>
+    <height>1083</height>
    </rect>
   </property>
   <property name="font">
@@ -36,8 +36,8 @@
    </size>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_6">
-    <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <spacer name="horizontalSpacer_8">
@@ -165,20 +165,7 @@
       </item>
      </layout>
     </item>
-    <item>
-     <spacer name="verticalSpacer_7">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
+    <item row="1" column="0" colspan="2">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <spacer name="horizontalSpacer">
@@ -187,7 +174,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>10</width>
+          <width>40</width>
           <height>20</height>
          </size>
         </property>
@@ -195,10 +182,16 @@
       </item>
       <item>
        <widget class="QTableWidget" name="taulaNumeros">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="minimumSize">
          <size>
-          <width>962</width>
-          <height>386</height>
+          <width>1500</width>
+          <height>602</height>
          </size>
         </property>
         <property name="sizeIncrement">
@@ -258,10 +251,10 @@
          <bool>false</bool>
         </attribute>
         <attribute name="horizontalHeaderMinimumSectionSize">
-         <number>64</number>
+         <number>100</number>
         </attribute>
         <attribute name="horizontalHeaderDefaultSectionSize">
-         <number>64</number>
+         <number>100</number>
         </attribute>
         <attribute name="horizontalHeaderHighlightSections">
          <bool>true</bool>
@@ -269,11 +262,14 @@
         <attribute name="verticalHeaderVisible">
          <bool>false</bool>
         </attribute>
+        <attribute name="verticalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
         <attribute name="verticalHeaderMinimumSectionSize">
-         <number>64</number>
+         <number>100</number>
         </attribute>
         <attribute name="verticalHeaderDefaultSectionSize">
-         <number>64</number>
+         <number>100</number>
         </attribute>
         <row>
          <property name="text">
@@ -1133,7 +1129,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>10</width>
+          <width>40</width>
           <height>20</height>
          </size>
         </property>
@@ -1141,7 +1137,7 @@
       </item>
      </layout>
     </item>
-    <item>
+    <item row="2" column="1">
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -1149,12 +1145,12 @@
       <property name="sizeHint" stdset="0">
        <size>
         <width>20</width>
-        <height>17</height>
+        <height>58</height>
        </size>
       </property>
      </spacer>
     </item>
-    <item>
+    <item row="3" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_7">
       <item>
        <spacer name="horizontalSpacer_3">
@@ -1416,7 +1412,7 @@ border-color: rgb(164, 0, 0);</string>
       </item>
      </layout>
     </item>
-    <item>
+    <item row="4" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <spacer name="horizontalSpacer_10">
@@ -1432,52 +1428,21 @@ border-color: rgb(164, 0, 0);</string>
        </spacer>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_5">
-        <item>
-         <spacer name="verticalSpacer_8">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="developedBy">
-          <property name="text">
-           <string>by Pau Antonio Soler</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <widget class="QLabel" name="developedBy">
+        <property name="text">
+         <string>by Pau Antonio Soler</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
      </layout>
-    </item>
-    <item>
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>10</height>
-       </size>
-      </property>
-     </spacer>
     </item>
    </layout>
   </widget>
  </widget>
  <tabstops>
-  <tabstop>taulaNumeros</tabstop>
   <tabstop>lectorNumero</tabstop>
   <tabstop>reset</tabstop>
  </tabstops>

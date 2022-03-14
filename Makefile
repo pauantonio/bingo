@@ -9,9 +9,12 @@ build:
 	
 setup:
 	sudo apt-get install python3-pip
-	pip install pyinstaller
-	pip install pyqt5
-	pip install pyqt5-tools
+	sudo pip3 install pyinstaller
+	sudo pip3 install pyqt5
+	sudo pip3 install pyqt5-tools
+	sudo apt-get install python3-tk
 	
 clean:
 	rm -rf __pycache__
+	rm -rf build
+	rm -rf dist
