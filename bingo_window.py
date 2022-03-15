@@ -89,7 +89,7 @@ class Ui_MainWindow(object):
         self.taulaNumeros.setAutoScroll(True)
         self.taulaNumeros.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.taulaNumeros.setTabKeyNavigation(False)
-        self.taulaNumeros.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
+        self.taulaNumeros.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.taulaNumeros.setTextElideMode(QtCore.Qt.ElideLeft)
         self.taulaNumeros.setShowGrid(True)
         self.taulaNumeros.setGridStyle(QtCore.Qt.DotLine)

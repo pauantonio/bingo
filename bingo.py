@@ -70,7 +70,7 @@ class Window(QMainWindow, Ui_MainWindow):
         self.lectorNumero.setValidator(self.onlyInt)
         self.taulaNumeros.resizeColumnsToContents()
 
-        #self.taulaNumeros.cellClicked.connect(self.numeroClicat)
+        self.taulaNumeros.clicked.connect(self.numeroClicat)
         self.botoNumero.clicked.connect(self.botoClicat)
         self.lectorNumero.returnPressed.connect(self.botoClicat)
         self.reset.clicked.connect(self.resetClicat)
@@ -92,10 +92,10 @@ class Window(QMainWindow, Ui_MainWindow):
         msg.setIcon(QMessageBox.Information)
         msg.exec_()
 
-    def numeroClicat(self) :
-        cella = self.taulaNumeros.cellActivated
-        num = cella.column*10+cella.row
-        self.canviarNumero(int(num))
+    def numeroClicat(self, selected) :
+        numero = selected.column()+selected.row()*15+1
+        self.taulaNumeros.clearSelection()
+        self.canviarNumero(int(numero))
         
     def canviarNumero(self, num) :
         item = self.taulaNumeros.item(int((num-1)/15), (num-1)%15)
