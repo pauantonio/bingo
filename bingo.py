@@ -7,8 +7,10 @@ import sys
 from tkinter import Y
 
 from PyQt5.QtWidgets import (
-    QApplication, QDialog, QMainWindow, QMessageBox
+    QApplication, QMainWindow, QMessageBox, QWidget, QVBoxLayout, QLabel, QPushButton
 )
+
+from PyQt5 import QtCore
 
 from PyQt5.QtGui import *
 
@@ -18,6 +20,44 @@ from bingo_window import Ui_MainWindow
 
 vectorNumeros = [False] * 90
 ultims = []
+
+class Bingo(QWidget) :
+    def __init__(self):
+        super().__init__()
+        screen = QApplication.primaryScreen()
+        self.setWindowTitle("Bingo Centre d'Esplai Flor de Neu")
+        layout = QVBoxLayout()
+        self.label = QLabel("")
+        self.label.setStyleSheet("background-image : url(bingo.png); background-repeat: no-repeat; background-position: center;")
+        layout.addWidget(self.label)
+        self.setLayout(layout)
+        self.setStyleSheet("background-color: white")
+
+        self.boto = QPushButton('Tancar', self)
+        self.boto.setMinimumSize(QtCore.QSize(200, 50))
+        self.boto.move(screen.size().width()-400, screen.size().height()-200)
+        self.boto.clicked.connect(self.close)
+
+        self.showMaximized()
+
+class Linia(QWidget) :
+    def __init__(self):
+        super().__init__()
+        screen = QApplication.primaryScreen()
+        self.setWindowTitle("Bingo Centre d'Esplai Flor de Neu")
+        layout = QVBoxLayout()
+        self.label = QLabel("")
+        self.label.setStyleSheet("background-image : url(linia.png); background-repeat: no-repeat; background-position: center;")
+        layout.addWidget(self.label)
+        self.setLayout(layout)
+        self.setStyleSheet("background-color: white")
+
+        self.boto = QPushButton('Tancar', self)
+        self.boto.setMinimumSize(QtCore.QSize(200, 50))
+        self.boto.move(screen.size().width()-400, screen.size().height()-200)
+        self.boto.clicked.connect(self.close)
+
+        self.showMaximized()
 
 class Window(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -128,18 +168,26 @@ class Window(QMainWindow, Ui_MainWindow):
                 posicio.setText('-')
 
     def liniaClicat(self) :
+        '''
         msg = QMessageBox()
         msg.setWindowTitle("LÍNIA!")
         msg.setText("Un afortunat/da ha fet línia!")
         msg.setIcon(QMessageBox.Information)
         msg.exec_()
+'''
+        self.linia = Linia()
+        self.linia.show()
 
     def bingoClicat(self) :
+        '''
         msg = QMessageBox()
         msg.setWindowTitle("BINGO!")
         msg.setText("Un afortunat/da ha fet bingo!")
         msg.setIcon(QMessageBox.Information)
         msg.exec_()
+'''
+        self.bingo = Bingo()
+        self.bingo.show()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
