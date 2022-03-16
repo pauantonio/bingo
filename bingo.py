@@ -26,8 +26,6 @@ class Window(QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         self.setupUi(self)
         
-        self.setWindowTitle("Bingo Centre d'Esplai Flor de Neu")
-
         self.onlyInt = QIntValidator()
         self.lectorNumero.setValidator(self.onlyInt)
         self.taulaNumeros.resizeColumnsToContents()
@@ -131,16 +129,16 @@ class Window(QMainWindow, Ui_MainWindow):
 
     def liniaClicat(self) :
         self.win2 = Window()
-        self.win2.show()
+        self.win2.showMaximized()
         popup_linia().setupUi(self.win2)
 
     def bingoClicat(self) :
         self.win2 = Window()
-        self.win2.show()
+        self.win2.showMaximized()
         popup_bingo().setupUi(self.win2)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     win = Window()
-    win.show()
+    win.showMaximized()
     sys.exit(app.exec())

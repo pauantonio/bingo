@@ -59,7 +59,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Bingo Centre d\'Esplai Flor de Neu"))
         self.fotoBingo.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/bingo/bingo.png\"/></p></body></html>"))
         self.tancar.setText(_translate("MainWindow", "&Tancar"))
 import bingo_rc
