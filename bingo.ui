@@ -91,7 +91,7 @@
          <widget class="QLabel" name="bingoSopar">
           <property name="font">
            <font>
-            <pointsize>25</pointsize>
+            <pointsize>35</pointsize>
            </font>
           </property>
           <property name="layoutDirection">
@@ -107,6 +107,11 @@
         </item>
         <item>
          <widget class="QLabel" name="esplai">
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Centre d'Esplai Flor de Neu</string>
           </property>
