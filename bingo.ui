@@ -203,7 +203,7 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>1500</width>
+          <width>1502</width>
           <height>452</height>
          </size>
         </property>
@@ -1190,7 +1190,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Últims 5 números</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;ÚLTIMS NÚMEROS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
           </item>

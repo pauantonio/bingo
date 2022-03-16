@@ -61,7 +61,8 @@ class Window(QMainWindow, Ui_MainWindow):
         item = self.taulaNumeros.item(int((num-1)/15), (num-1)%15)
         if (not vectorNumeros[num-1]) :
             vectorNumeros[num-1] = True
-            item.setBackground(QBrush(QColor(255, 0, 0, 255)))
+            #item.setBackground(QBrush(QColor(255, 0, 0, 255)))
+            item.setBackground(QBrush(QColor(106, 44, 112, 255)))
             item.setForeground(QBrush(QColor(255, 255, 255, 255)))
             ultims.insert(0, num)
             self.escriureUltims()
