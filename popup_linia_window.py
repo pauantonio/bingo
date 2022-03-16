@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icona/icona.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
-        MainWindow.setStyleSheet("background-color: rgb(255, 255, 255);")
+        MainWindow.setStyleSheet("")
         MainWindow.setLocale(QtCore.QLocale(QtCore.QLocale.Catalan, QtCore.QLocale.Spain))
         MainWindow.setIconSize(QtCore.QSize(1080, 1080))
         self.centralwidget = QtWidgets.QWidget(MainWindow)

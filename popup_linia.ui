@@ -27,7 +27,7 @@
     <normaloff>:/icona/icona.png</normaloff>:/icona/icona.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true"/>
   </property>
   <property name="locale">
    <locale language="Catalan" country="Spain"/>
