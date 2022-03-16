@@ -1,5 +1,7 @@
 gui:
 	pyuic5 -o bingo_window.py bingo.ui
+	pyuic5 -o popup_bingo_window.py popup_bingo.ui
+	pyuic5 -o popup_linia_window.py popup_linia.ui
 
 run: gui
 	python3 bingo.py
