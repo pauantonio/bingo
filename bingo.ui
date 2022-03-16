@@ -173,7 +173,7 @@
       <property name="sizeHint" stdset="0">
        <size>
         <width>20</width>
-        <height>132</height>
+        <height>50</height>
        </size>
       </property>
      </spacer>
@@ -204,7 +204,7 @@
         <property name="minimumSize">
          <size>
           <width>1500</width>
-          <height>386</height>
+          <height>452</height>
          </size>
         </property>
         <property name="sizeIncrement">
@@ -279,10 +279,10 @@
          <bool>false</bool>
         </attribute>
         <attribute name="verticalHeaderMinimumSectionSize">
-         <number>64</number>
+         <number>75</number>
         </attribute>
         <attribute name="verticalHeaderDefaultSectionSize">
-         <number>64</number>
+         <number>75</number>
         </attribute>
         <row>
          <property name="text">
