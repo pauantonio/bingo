@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="resources">
+    <file>bingo.png</file>
+    <file>icona.png</file>
+    <file>linia.png</file>
+    <file>logo.png</file>
+  </qresource>
+</RCC>

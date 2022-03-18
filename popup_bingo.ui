@@ -23,8 +23,8 @@
    <string>Bingo Centre d'Esplai Flor de Neu</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>:/icona/icona.png</normaloff>:/icona/icona.png</iconset>
+   <iconset resource="resources/resources.qrc">
+    <normaloff>:/resources/icona.png</normaloff>:/resources/icona.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -43,7 +43,7 @@
     <item row="0" column="0">
      <widget class="QLabel" name="fotoBingo">
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/bingo/bingo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resources/bingo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -124,7 +124,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="bingo.qrc"/>
+  <include location="resources/resources.qrc"/>
  </resources>
  <connections>
   <connection>

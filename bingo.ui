@@ -23,8 +23,8 @@
    <string>Bingo Centre d'Esplai Flor de Neu</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icona.qrc">
-    <normaloff>:/icona/icona.png</normaloff>:/icona/icona.png</iconset>
+   <iconset resource="resources/resources.qrc">
+    <normaloff>:/resources/icona.png</normaloff>:/resources/icona.png</iconset>
   </property>
   <property name="locale">
    <locale language="Catalan" country="Spain"/>
@@ -55,7 +55,7 @@
       <item>
        <widget class="QLabel" name="logo1">
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/logo/logo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resources/logo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
@@ -151,7 +151,7 @@
       <item>
        <widget class="QLabel" name="logo2">
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/logo/logo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/resources/logo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
@@ -170,6 +170,19 @@
       </item>
      </layout>
     </item>
+    <item row="3" column="1">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>58</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
     <item row="1" column="2">
      <spacer name="verticalSpacer_2">
       <property name="orientation">
@@ -182,6 +195,33 @@
        </size>
       </property>
      </spacer>
+    </item>
+    <item row="5" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <spacer name="horizontalSpacer_10">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="developedBy">
+        <property name="text">
+         <string>by Pau Antonio Soler</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item row="2" column="0" colspan="3">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -1155,19 +1195,6 @@
       </item>
      </layout>
     </item>
-    <item row="3" column="1">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>58</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
     <item row="4" column="0" colspan="3">
      <layout class="QHBoxLayout" name="horizontalLayout_7">
       <item>
@@ -1430,33 +1457,6 @@ border-color: rgb(164, 0, 0);</string>
       </item>
      </layout>
     </item>
-    <item row="5" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <spacer name="horizontalSpacer_10">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QLabel" name="developedBy">
-        <property name="text">
-         <string>by Pau Antonio Soler</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
    </layout>
   </widget>
  </widget>
@@ -1465,8 +1465,7 @@ border-color: rgb(164, 0, 0);</string>
   <tabstop>reset</tabstop>
  </tabstops>
  <resources>
-  <include location="logo.qrc"/>
-  <include location="icona.qrc"/>
+  <include location="resources/resources.qrc"/>
  </resources>
  <connections/>
  <slots>
