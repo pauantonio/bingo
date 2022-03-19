@@ -4,6 +4,7 @@
 
 from pickle import FALSE
 import sys
+sys.path.insert(0, './temp')
 from tkinter import Y
 
 from PyQt5.QtWidgets import (
