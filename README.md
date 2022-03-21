@@ -20,10 +20,10 @@ Bingo desktop app developed for Sopar de la Fam, a non-profit dinner organized b
 - Minimize app startup time
 ## Author
 
-- [@pauantonio](https://www.github.com/pauantonio)
+- Pau Antonio ([@pauantonio](https://www.github.com/pauantonio))
 
 
 ## Feedback
 
-If you have any feedback, please reach out to me on Twitter at [@pauantonio_](https://twitter.com/pauantonio_)
+If you have any feedback, please reach out to me on Twitter ([@pauantonio_](https://twitter.com/pauantonio_))
 
