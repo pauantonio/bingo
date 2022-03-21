@@ -23,7 +23,7 @@
    <string>Bingo Centre d'Esplai Flor de Neu</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources/resources.qrc">
+   <iconset resource="../resources/resources.qrc">
     <normaloff>:/resources/icona.png</normaloff>:/resources/icona.png</iconset>
   </property>
   <property name="styleSheet">
@@ -124,7 +124,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="resources/resources.qrc"/>
+  <include location="../resources/resources.qrc"/>
  </resources>
  <connections>
   <connection>
